@@ -7,6 +7,49 @@ import numpy as np
 import sys 
 #import Detection_algo.CoinDetection as CoinDetection
 
+
+import time
+
+# Constants
+SPEED_OF_LIGHT = 3e8  # Speed of light in meters/second
+
+def measure_reflection_time():
+    """
+    This function simulates the measurement of the time taken for the IR signal
+    to return to the sensor. In a real system, you would replace this with actual
+    hardware code interfacing with the IR sensor.
+    """
+    # Emit IR pulse (in a real project, you'd trigger this with the hardware)
+    print("Emitting IR pulse...")
+    
+    # Simulate time delay (in real code, you'd wait for the actual return signal)
+    start_time = time.time()  # Record the start time of the emitted pulse
+    # Wait for reflection (simulated delay)
+    time.sleep(0.000001)  # Simulated delay for the signal return (1 microsecond)
+    end_time = time.time()  # Record the end time when the reflection is detected
+
+    # Calculate the round trip time
+    round_trip_time = end_time - start_time
+    return round_trip_time
+
+def calculate_distance(time_of_flight):
+    """
+    Calculate the distance based on the time of flight (time taken for light to travel 
+    to the object and reflect back to the sensor).
+    """
+    # Calculate distance (in meters)
+    distance = (SPEED_OF_LIGHT * time_of_flight) / 2
+    return distance
+
+# # Simulate the time of flight measurement from the IR sensor
+# reflection_time = measure_reflection_time()
+# print(f"Time of flight (seconds): {reflection_time}")
+
+# # Calculate the distance to the object
+# distance = calculate_distance(reflection_time)
+# print(f"Distance to object: {distance} meters")
+
+
 def getArea(radius):
     #radius * 2 = objSize
     # 158px = 0.9in
@@ -52,7 +95,7 @@ def getPixelCount():
 
     return totalPixelCount
 
-files = glob('C:\\Users\\MartinezR\\AI_Scripts\\woundData\\wound10.png')
+files = glob('C:\\Users\\MartinezR\\AI_Scripts\\woundData\\*.png')
 
 if not files:
     print("No files found.")
@@ -150,7 +193,7 @@ for f, ax, lbl in zip(files, axes.ravel(), label):
     ax.grid()
     
     # ax.add_patch(circle)
-    ax.text(-50, -20, lbl, fontsize=40, color='k', weight='bold')
+    ax.text(0, 0, lbl, fontsize=20, color='k', weight='bold')
     t1 = ax.text(0.3, 0.2, f"Wound Area:{wound_area:.3f}", 
              transform=ax.transAxes, fontsize=14)
     t = ax.text(0.3, 0.05, f"Deepskin's score: {pwat:.3f}",
