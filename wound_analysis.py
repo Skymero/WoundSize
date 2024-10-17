@@ -1,7 +1,7 @@
 from glob import glob
 import cv2
-from deepskin import wound_segmentation
-from deepskin import evaluate_PWAT_score
+from deepskin.deepskin.segmentation import wound_segmentation
+from deepskin.deepskin.pwat import evaluate_PWAT_score
 import matplotlib.pyplot as plt
 import numpy as np
 import sys 
