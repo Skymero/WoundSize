@@ -17,3 +17,5 @@ from .pwat import evaluate_PWAT_score
 
 __author__  = ['Nico Curti']
 __email__ = ['nico.curti2@unibo.it']
+
+__version__ = '1.0.0'
