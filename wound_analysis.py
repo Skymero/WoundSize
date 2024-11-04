@@ -60,10 +60,10 @@ def getArea(radius):
     
     # px^2 * pixelCount = pixelArea
     # in^2 * pixelCount = pixelArea
-
-    objectSize = 0.9
-    pixelPerInch = (objectSize /2) / radius
-    areaPerPixel = pixelPerInch * pixelPerInch
+    #todo: fix this logix
+    # objectSize = 0.9
+    # pixelPerInch = (objectSize /2) / radius
+    areaPerPixel = 3.2446723281525396571062329754847 * pow(10,-5)
     pixelCount = getPixelCount()
     woundArea = areaPerPixel * pixelCount 
     
