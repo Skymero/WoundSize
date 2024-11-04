@@ -1,7 +1,8 @@
 from glob import glob
+import pathlib
 import cv2
-from deepskin.segmentation import wound_segmentation
-from deepskin.pwat import evaluate_PWAT_score
+from deepskin import wound_segmentation
+from deepskin import evaluate_PWAT_score
 import matplotlib.pyplot as plt
 import numpy as np
 import sys 
@@ -95,10 +96,14 @@ def getPixelCount():
 
     return totalPixelCount
 
-files = glob('C:\\Users\\MartinezR\\AI_Scripts\\woundData\\*.png')
+# files = glob('C:\\Users\\MartinezR\\AI_Scripts\\woundData\\*.png')
+# files = glob('\\WoundSize\\images\\*.png')
+current_dir = pathlib.Path(__file__).parent
+images_dir = current_dir / 'images'
+files = glob(str(images_dir / '*.png'))
 
 if not files:
-    print("No files found.")
+    print(f"No files found.{files}")
 else:
     print(f"Files found: {files}")
 
@@ -201,6 +206,9 @@ for f, ax, lbl in zip(files, axes.ravel(), label):
     t.set_bbox(dict(facecolor='white', alpha=0.75, edgecolor='k'))
     t1.set_bbox(dict(facecolor='white', alpha=0.75, edgecolor='k'))
     ax.axis('off')
+    
+    outfile = "output_img.png"
+    plt.savefig(outfile, bbox_inches='tight', pad_inches=0,dpi=300)
     
 fig.tight_layout()
 plt.show()
