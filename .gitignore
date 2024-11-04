@@ -1,7 +1,11 @@
 # Ignore virtual environment
 .myenv/
 
+
 # Ignore other common files
 *.log
 __pycache__/
 *.pyc
+
+
+efficientnetb3_deepskin_semantic.zip
