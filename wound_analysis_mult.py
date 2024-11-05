@@ -98,7 +98,11 @@ def getPixelCount():
 def main(filepath):
 
     # files = glob('C:\\Users\\MartinezR\\AI_Scripts\\woundData\\*.png')
-    files = glob(filepath)
+    # files = glob('C:\\Users\\MartinezR\\AI_Scripts\\woundData\\*.png')
+    # files = glob('\\WoundSize\\images\\*.png')
+    current_dir = pathlib.Path(__file__).parent
+    images_dir = current_dir / 'images'
+    files = glob(str(images_dir / '*.png'))
     pwatArr =[]
     woundSizeArr = []
 
