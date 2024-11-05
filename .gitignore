@@ -1,0 +1,11 @@
+# Ignore other common files
+*.log
+__pycache__/
+*.pyc
+
+# Ignore venv
+venv/
+.venv/
+.myenv/
+.myvenv/
+myenv/
