@@ -61,9 +61,9 @@ def getArea(radius):
     # px^2 * pixelCount = pixelArea
     # in^2 * pixelCount = pixelArea
 
-    objectSize = 0.9
-    pixelPerInch = (objectSize /2) / radius
-    areaPerPixel = pixelPerInch * pixelPerInch
+    # objectSize = 0.9
+    # pixelPerInch = (objectSize /2) / radius
+    areaPerPixel = 3.2446723281525396571062329754847 * pow(10,-5)
     pixelCount = getPixelCount()
     woundArea = areaPerPixel * pixelCount 
     
@@ -96,6 +96,7 @@ def getPixelCount():
 
     return totalPixelCount
 
+
 # files = glob('C:\\Users\\MartinezR\\AI_Scripts\\woundData\\*.png')
 # files = glob('\\WoundSize\\images\\*.png')
 current_dir = pathlib.Path(__file__).parent
@@ -109,7 +110,7 @@ else:
 
 label = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
 
-fig, axes = plt.subplots(nrows=3, ncols=3, figsize=(21, 21))
+fig, axes = plt.subplots(nrows=3, ncols=3, figsize=(10, 10))
 
 for f, ax, lbl in zip(files, axes.ravel(), label):
     
