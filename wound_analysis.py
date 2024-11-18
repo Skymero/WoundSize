@@ -187,4 +187,4 @@ def main(f):
     fig.tight_layout()
     plt.show()
 
-main("images/wound.png")
+# main("images/wound.png")
